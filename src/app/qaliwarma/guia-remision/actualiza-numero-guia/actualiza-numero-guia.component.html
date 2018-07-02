@@ -1,11 +1,11 @@
 <div class="row">
     <label class="col-md-2">Periodo</label>
-    <input type="number" class="col-md-3 form-control inputfield" [(ngModel)]="this.anno"  (change)="sendConsulta()"  >
+    <input type="number" class="col-md-3 form-control inputfield" [(ngModel)]="this.anno"    >
   </div>
 
   <div class="row">
     <label class="col-md-2">Nro Entrega</label>
-    <input type="number" class="col-md-3 form-control inputfield" [(ngModel)]="this.numeroEntrega"  (change)="sendConsulta()">
+    <input type="number" class="col-md-3 form-control inputfield" [(ngModel)]="this.numeroEntrega"  >
   </div>
 
 
@@ -33,23 +33,27 @@
 
         <p>
           <mat-form-field>
-              <input matInput placeholder="Codigo Modular">
+              <input matInput placeholder="Codigo Modular" [(ngModel)]="codigoModular" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
+          <i (click)="buscarCodigoModular()" style="cursor: pointer;" class="fa fa-search fa-1x" aria-hidden="true" data-toggle="tooltip" title="Buscar"></i>
         </p>
+
+        <div [hidden]="!flagExiste" > 
         <p>
           <mat-form-field>
-                <input matInput placeholder="Nro Guia">
+                <input matInput placeholder="Nro Guia" [(ngModel)]="numeroGuia" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         </p>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button  class="btn btn-primary" (click)="update()">Grabar</button>
+        </div>
         </form>
   </div>
   
   
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-    <app-ruta-distribucion-list></app-ruta-distribucion-list>
+    <app-ruta-distribucion-list ></app-ruta-distribucion-list>
 
   </div>
 
