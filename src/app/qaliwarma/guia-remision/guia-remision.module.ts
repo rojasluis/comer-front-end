@@ -10,6 +10,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ActualizaNumeroGuiaComponent } from './actualiza-numero-guia/actualiza-numero-guia.component';
+import { RutaDistribucionModule } from '../ruta-distribucion/ruta-distribucion.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ActualizaNumeroGuiaComponent } from './actualiza-numero-guia/actualiza-
     ReactiveFormsModule,
     ConfirmDialogModule,
     DropdownModule,
-    HttpClientModule
+    HttpClientModule,
+    RutaDistribucionModule
   ],
   declarations: [GuiaRemisionMainComponent, GuiaRemisionEditComponent, GuiaRemisionListComponent, ActualizaNumeroGuiaComponent]
 })

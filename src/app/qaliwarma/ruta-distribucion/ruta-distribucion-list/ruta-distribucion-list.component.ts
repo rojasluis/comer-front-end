@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RutaDistribucionModel } from '../ruta-distribucion-model';
 import { CrudHttpClientServiceShared } from '../../../shared/servicio/crudHttpClient.service.shared';
 import { ActivatedRoute } from '@angular/router';
@@ -21,8 +21,12 @@ export class RutaDistribucionListComponent implements OnInit {
   id: number;
   sub: any;
   show: Boolean = true;
-  anno:number;
-  numeroEntrega:number = 1;
+
+  @Input() anno:number;
+  @Input() numeroEntrega:number = 1;
+
+  @Input() isBuscador:boolean =false;
+
   public rutaDistribucionModel: RutaDistribucionModel;
   public rutaDistribucionsModel: RutaDistribucionModel[];
 

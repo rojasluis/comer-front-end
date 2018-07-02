@@ -30,6 +30,7 @@ import { MapaDistribucionComponent } from './mapa-distribucion/mapa-distribucion
     EmpleadoDistribuidorModule,
     VolumenRequerimiento001Module
   ],
-  declarations: [ RutaDistribucionMainComponent, RutaDistribucionListComponent, RutaDistribucionEditComponent, RutaDistribucionDetalleComponent, MapaDistribucionComponent]
+  declarations: [ RutaDistribucionMainComponent, RutaDistribucionListComponent, RutaDistribucionEditComponent, RutaDistribucionDetalleComponent, MapaDistribucionComponent],
+  exports : [RutaDistribucionListComponent]
 })
 export class RutaDistribucionModule { }
