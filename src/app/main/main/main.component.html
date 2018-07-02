@@ -1,0 +1,260 @@
+<!-- <div class="container-fluid">   
+<section>
+<div class="inicio">
+  
+  <div id="cabecera">
+      <div class="titulo">ADICSE</div>
+      <div class="usuario">USUARIO: ADICSE</div>
+      <div class="cerrarsesion"> <a [routerLink]="['/login']" (click)="onLoggedout()">Cerrar Sesion</a>  </div>
+  </div>
+
+
+    <div id="menu">           
+       <ad-menu></ad-menu>
+    </div>
+
+    <div  id="contenedor">
+      <router-outlet></router-outlet> 
+
+
+
+    </div>
+     
+</div>
+
+</section>
+</div> -->
+
+<!-- 
+    <header>  
+
+        <div id="cabecera" class="container-fluid">
+
+            <div class="titulo">ADICSE</div>
+            <div class="usuario">USUARIO: ADICSE</div>
+            <div class="cerrarsesion"> <a [routerLink]="['/login']" (click)="onLoggedout()">Cerrar Sesion</a> </div>
+
+        </div>
+
+    </header>
+  
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2" style= "border:1px solid red">
+             <ad-menu></ad-menu>
+        </div>
+        <div class="col-xs-12 col-sm-9 col-md-8 col-lg-9" style=" border:1px solid blue">
+
+           
+
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+ -->
+<header>
+
+    <div id="cabecera" class="container-fluid">
+
+        <div class="titulo">ADICSE</div>
+        <div class="usuario">USUARIO: ADICSE</div>
+        <div class="actualizado">Version : {{datos.actualizacion}}</div>
+        <div class="cerrarsesion"> <a [routerLink]="['/login']" (click)="onLoggedout()">Cerrar Sesion</a> </div>
+        <div *ngIf="showTimeOut" class="cerrarsesion2">!! Atencion su sesion se cerrara en : {{timeOut}} &nbsp;&nbsp;&nbsp;  <span class="badge badge-pill badge-primary" style="cursor:pointer" (click)="restart()">Click para continuar</span> </div>
+    </div>
+
+<!--     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">Navbar</a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav> -->
+
+</header>
+
+<div id="wrapper">
+
+    <!-- sidebar -->
+    <div id="sidebar-wrapper" style="height: 100%; overflow-y: scroll;">
+        <ul>
+            <li >
+                <a href="#" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-search icono"></i>Operaciones</a>
+                
+
+                <ul class="collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
+                    <li><a href="#">Link 2.1</a></li>
+                    <li><a href="#">Link 2.2</a></li>
+                    <li><a href="#">Link 2.3</a></li>
+                </ul>
+
+            </li>
+            <!-- MENU ALMACEN  -->
+            <li>
+                <a data-toggle="collapse" data-target="#talmacen"><span class="fa fa-university icono"></span>Almacen</a>
+                <ul class="collapse" id="talmacen" role="menu" aria-labelledby="btn-1">
+                        <li><a [routerLink]="['/menu-almacen-ingreso/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Ingreso</a></li>
+                        <li><a [routerLink]="['/menu-almacen-salida/main']" routerLinkActive="router-link-active"> <span class="icono"> </span>Salida</a></li>
+                        <li><a [routerLink]="['/menu-almacen-kardex/main']" routerLinkActive="router-link-active"> <span class="icono"> </span>Kardex</a></li>
+                        <li><a>  <span class="icono"></span>Traslado</a></li>
+                        <hr>
+                        <li><a [routerLink]="['/menu-periodoalmacen/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Periodos de trabajo</a></li>
+                        <li><a [routerLink]="['/menu-marca']" routerLinkActive="router-link-active"> <span class="icono"></span>Cierre de periodo</a></li>                    
+                        <li><a [routerLink]="['/menu-proveedorcliente/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Apertura de periodo</a></li> 
+                </ul>             
+            </li>
+
+           <!-- COMPRAS -->
+            <li> 
+                <a data-toggle="collapse" data-target="#tcompras"><span class="fa fa-shopping-cart icono"></span>Compras</a>
+                <ul class="collapse" id="tcompras" role="menu" aria-labelledby="btn-1">
+                        <li><a [routerLink]="['/menu-almacen-ingreso/main']" routerLinkActive=""> <span class="icono"></span>Registro</a></li>
+                        <li><a [routerLink]="['/menu-almacen-salida/main']" routerLinkActive="router-link-active"> <span class="icono"> </span>Gastros</a></li>
+                        <li><a [routerLink]="['/menu-almacen-kardex/main']" routerLinkActive="router-link-active"> <span class="icono"> </span>Centro de gastos</a></li>
+                        <hr>
+                        <li><a [routerLink]="['/menu-periodoalmacen/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Consultas</a></li>
+                        <li><a [routerLink]="['/menu-marca']" routerLinkActive="router-link-active"> <span class="icono"></span>Cierre de periodo</a></li>                    
+                        <li><a [routerLink]="['/menu-proveedorcliente/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Apertura de periodo</a></li> 
+                     
+                </ul>         
+            
+            </li>
+
+            <!-- VENTAS  -->
+            <li> <a [routerLink]="['/menu-ventas/main']"><span class="fa fa-balance-scale icono"></span>Ventas</a> </li>
+
+            
+             <!-- MENU MAESTROS  -->
+            <li> 
+                <a data-toggle="collapse" data-target="#tmaestros"><span class="fa fa-puzzle-piece icono"></span>Maestros</a>
+                <ul class="collapse" id="tmaestros" role="menu" aria-labelledby="btn-1">
+                        <li class="disabled-li" id="li-sm-producto"><a [routerLink]="['/menu-productos/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Producto</a></li>
+                        <li><a [routerLink]="['/menu-categoria/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Catetorias de productos</a></li>
+                        <li><a [routerLink]="['/menu-marca/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Marcas de productos</a></li>                    
+                        <li><a [routerLink]="['/menu-proveedorcliente/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Proveedores/Clientes</a></li> 
+                        <li><a [routerLink]="['/menu-motivo-ingreso/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Motivos Ingreso Almacen</a></li> 
+                        <li><a [routerLink]="['/menu-motivo-salida/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Motivos Salida Almacen</a></li> 
+                        <li><a [routerLink]="['/menu-unidadmedida/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Unidad medida</a></li> 
+                        <hr>
+                        <li><a [routerLink]="['/menu-usuario/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Usuarios</a></li> 
+                        <li><a [routerLink]="['/menu-perfil/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Perfil</a></li> 
+                        <li><a [routerLink]="['/menu-empleado/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Empleados</a></li> 
+                        <li><a [routerLink]="['/menu-almacen/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Amacenes</a></li> 
+                </ul> 
+            </li>
+
+            <!-- Configuracion -->
+            <li>
+                    <a data-toggle="collapse" data-target="#tconfiguracion"><span class="fa fa-puzzle-piece icono"></span>Configuracion</a>
+                    <ul class="collapse" id="tconfiguracion" role="menu" aria-labelledby="btn-1">
+                            <li><a [routerLink]="['/menu-configuracion-punto-de-venta/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Punto Venta</a></li>
+                    </ul>
+                    
+
+            </li>
+
+            <!-- qaliwarma -->
+            <li>
+                <a data-toggle="collapse" data-target="#tqaliwarma"><span class="fa fa-quora icono"></span>Qaliwarma</a>
+                <ul class="collapse" id="tqaliwarma" role="menu" aria-labelledby="btn-1">
+                        <li><a [routerLink]="['/menu-qaliwarma-catalogo-producto/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Catalogo Productos</a></li>
+                        <li><a [routerLink]="['/menu-qaliwarma-centros-educativos/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Centros Educativos</a></li>
+                        <li><a [routerLink]="['/menu-qaliwarma-ruta-distribucion/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Ruta Distribucion</a></li>
+                        <li><a [routerLink]="['/menu-qaliwarma-actualiza-guia/actualizaNroGuia']" routerLinkActive="router-link-active"> <span class="icono"></span>Registro Nro Guia</a></li>
+                        <li><a [routerLink]="['/menu-qaliwarma-empleado-distribuidor/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Empleado Distribuidor</a></li>
+                        <li><a [routerLink]="['/menu-qaliwarma-guia-remision/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Impresion Guias</a></li>
+                       
+                        <li>
+                                <a data-toggle="collapse" data-target="#tqaliwarma-consultas"> &nbsp; <span class="fa fa-list-alt icono"></span>Consultas</a>
+                                <ul class="collapse" id="tqaliwarma-consultas">
+                                    <li><a [routerLink]="['/menu-qaliwarma-consulta-control-despacho/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Control de despacho</a></li> 
+                                    
+                                </ul>
+                                </li>
+
+                        <li>
+                        <a data-toggle="collapse" data-target="#tqaliwarma-procesos"> &nbsp; <span class="fa fa-gear icono"></span>Process</a>
+                        <ul class="collapse" id="tqaliwarma-procesos">
+                            <li><a [routerLink]="['/menu-qaliwarma-catalogo-item-anno/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Procesos</a></li> 
+                            <li><a [routerLink]="['/menu-qaliwarma-proceso-cargar-info/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Cargar Info.</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-proceso-calcular-volumen/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Calcular Volumen</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-proceso-generar-excel-peso/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Generar Excel Pesos.</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-proceso-generar-excel/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Generar Excel Vol.</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-proceso-generar-guias/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Generar Guias</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-proceso-eliminar-calculo/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Eliminar Calculo</a></li>
+
+                            
+                        </ul>
+                        </li>
+                        <li>
+                        <a data-toggle="collapse" data-target="#tqaliwarma-parametros"> &nbsp; <span class="fa fa-file-text-o icono"></span>Parametros</a>
+                        <ul class="collapse" id="tqaliwarma-parametros">
+                            <li><a [routerLink]="['/menu-qaliwarma-punto-partida/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Punto de partida</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-vehiculo/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Vehiculo</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-chofer/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Chofer</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-transportista/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Transportista</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-monto-contratado/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Monto Contratado PU</a></li>
+                            <li><a [routerLink]="['/menu-qaliwarma-entrega-por-item/main']" routerLinkActive="router-link-active"> <span class="icono"></span>Datos para guia remis.</a></li>
+                        </ul>
+                        </li>
+ 
+
+                </ul>
+
+            
+                
+
+        </li>
+
+        </ul>
+
+    </div>
+
+    <!-- page content -->
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Confeccion de icono mostrar menu -->
+                    <i class="fa fa-bars" style="cursor: pointer;" (click)="menutooggle($event)"></i>
+                      
+
+
+                    
+                        <router-outlet></router-outlet>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- menu toggle scrip  -->
+    
+
+
+
+</div>

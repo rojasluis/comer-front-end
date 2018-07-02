@@ -1,0 +1,63 @@
+<div class="row">
+    <label class="col-md-2">Periodo</label>
+    <input type="number" class="col-md-3 form-control inputfield" [(ngModel)]="this.anno"  (change)="sendConsulta()"  >
+  </div>
+
+  <div class="row">
+    <label class="col-md-2">Nro Entrega</label>
+    <input type="number" class="col-md-3 form-control inputfield" [(ngModel)]="this.numeroEntrega"  (change)="sendConsulta()">
+  </div>
+
+
+  <br>
+  <br>
+  
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Buscar Por Codigo Modular</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Por Ruta Distribucion</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="codmod-pendiente-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Cod. Modulares Pendientes</a>
+    </li>
+</ul>
+
+
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+  </div>
+  
+  
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+    <app-ruta-distribucion-list></app-ruta-distribucion-list>
+
+  </div>
+
+  <div class="tab-pane fade" id="codmod-pendiente-tab" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+  
+</div>
+
+
+
+

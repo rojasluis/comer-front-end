@@ -1,0 +1,30 @@
+.ui-panelmenu{
+    background-color: red;
+}
+.ui-panelmenu .ui-panelmenu-header{
+    background-color: red;
+}
+.ui-menu-list{
+    font-size: 7px;
+    color: red;    
+    border: 1px solid #aed0ea !important;
+    margin-left: 10px;
+}
+.ui-menuitem-text{
+    font-size: 7px;
+    color: red;
+    border: 1px solid #aed0ea !important;
+}
+
+.ui-menuitem{
+    font-size: 7px;
+    color: red;
+    border: 1px solid #aed0ea !important;
+}
+
+.ui-menubar  {
+    border: 1px solid #aed0ea !important;
+ 
+    color: #ffffff !important;
+    font-weight: bolder !important;
+}
