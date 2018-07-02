@@ -5,7 +5,8 @@ import { XcoreModule } from './xcore/xcore.module';
 import { XcoreComponent } from './xcore/xcore.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+//import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -16,7 +17,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
+    //NoopAnimationsModule,
     XcoreModule
     
     
@@ -26,7 +27,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
    
   ],
   bootstrap: [XcoreComponent],
-  declarations: []
+  declarations: [],
+  
  
 })
+
 export class AppModule { }

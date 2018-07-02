@@ -11,7 +11,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ActualizaNumeroGuiaComponent } from './actualiza-numero-guia/actualiza-numero-guia.component';
 import { RutaDistribucionModule } from '../ruta-distribucion/ruta-distribucion.module';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -25,6 +26,8 @@ import { RutaDistribucionModule } from '../ruta-distribucion/ruta-distribucion.m
     ConfirmDialogModule,
     DropdownModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
     RutaDistribucionModule
   ],
   declarations: [GuiaRemisionMainComponent, GuiaRemisionEditComponent, GuiaRemisionListComponent, ActualizaNumeroGuiaComponent]

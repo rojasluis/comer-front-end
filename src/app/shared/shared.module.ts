@@ -12,14 +12,17 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorAutorizationService } from './interceptor-autorization.service';
 import {TableModule} from 'primeng/table';
 
+
 @NgModule({
   imports: [
+    
     CommonModule,
     GrowlModule,
     DataTableModule,
     CommonModule,
     BlockUIModule,
     TableModule
+   
   ],
   declarations: [ PaginationComponent, DecimalDirective, CurrencyPipePipe,HighlightDirective],
   providers: [AuthGuard,CurrencyPipePipe
