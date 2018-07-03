@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GuiaRemisionService } from '../guia-remision.service';
 import { GuiaRemisionModel } from '../guia-remision-model';
 import swal from 'sweetalert2';
 import { CrudHttpClientServiceShared } from '../../../shared/servicio/crudHttpClient.service.shared';
+import { isUndefined } from 'util';
 
 @Component({
   selector: 'app-actualiza-numero-guia',
@@ -19,6 +20,8 @@ export class ActualizaNumeroGuiaComponent implements OnInit {
   flagExiste:boolean = false;
 
   guiaRemisionModel:GuiaRemisionModel;
+  @ViewChild("codigoModularId") trgCodigoModularFocusEl: ElementRef;
+  @ViewChild("nroGuiaId") trgNroGuiaIdFocusEl: ElementRef;
 
   constructor(private guiaRemisionService:GuiaRemisionService, private crudHttpClientServiceShared:CrudHttpClientServiceShared ) { }
 
@@ -28,11 +31,15 @@ export class ActualizaNumeroGuiaComponent implements OnInit {
     this.anno = d.getFullYear();
 
     this.numeroEntrega =parseInt( localStorage.getItem("numeroEntrega"));
+    this.clickPestana1();
 
 
   }
 
   buscarCodigoModular(){
+    if(this.codigoModular == "" || isUndefined(this.codigoModular)){
+      return ;
+    }
     this.guiaRemisionService.getGuiaRemisionPorCodigoModularJson(this.anno,this.numeroEntrega, this.codigoModular)
       .subscribe( res=> {
           
@@ -44,16 +51,40 @@ export class ActualizaNumeroGuiaComponent implements OnInit {
           this.guiaRemisionModel = new GuiaRemisionModel(res.idGuiaRemision001,res.serie, res.numero, res.numeroFisico, res.fechaEmision,res.proveedorcliente,res.puntoPartida,res.puntoLlegada,res.requerimientoVolumen001,res.vehiculo,res.chofer,res.transportista,res.estado,res.sumaPesoTotal,res.ordenPorItem);
           this.numeroGuia = this.guiaRemisionModel.numeroFisico;
           console.log(this.guiaRemisionModel);
+
+          setTimeout( ()=>{
+            this.trgNroGuiaIdFocusEl.nativeElement.focus();
+          },500 )
         })
 
   }
 
   update(){
+    if(this.numeroGuia == "" || isUndefined(this.numeroGuia)){
+      return ;
+    }
+
     this.guiaRemisionModel.numeroFisico = this.numeroGuia;
 
     this.crudHttpClientServiceShared.update(this.guiaRemisionModel,"guiaremision","update")
     .subscribe( res=>{
-      swal("Actualizacion correcta");
+      swal({
+        position: 'top-end',
+        type: 'success',
+        title: 'Grabacion correcta',
+        showConfirmButton: false,
+        timer: 500
+      });
+
+      this.numeroGuia = "";
+      this.codigoModular = "";
+      setTimeout(()=>{
+        this.trgCodigoModularFocusEl. nativeElement.focus();
+      },1000);
+  
+      
+      
+
     },
     error=>{
       swal("Error","El numero de guia ya fue registrado");
@@ -62,5 +93,24 @@ export class ActualizaNumeroGuiaComponent implements OnInit {
   )
 
   }
+
+  onKeydown(event) {
+    
+    if (event.key === "Enter") {
+      this.buscarCodigoModular();
+    }
+  }
+
+  clickPestana1(){
+    setTimeout( ()=> {
+      this.trgCodigoModularFocusEl.nativeElement.focus();
+    },500 )
+  }
+
+  onSetFocusCodigoModular() {
+    setTimeout(()=>{
+     this.trgCodigoModularFocusEl.nativeElement.focus();
+   },100);
+ }
 
 }

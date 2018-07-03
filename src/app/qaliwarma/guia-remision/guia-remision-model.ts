@@ -25,7 +25,6 @@ export class GuiaRemisionModel {
         public sumaPesoTotal:number,
         public ordenPorItem:number
 
-
     ){
 
     }

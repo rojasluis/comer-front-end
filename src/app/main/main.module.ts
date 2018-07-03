@@ -147,10 +147,12 @@ const routes: Routes = [
       },
 
       /* Actualizacion Nro de Guia */
+
+      /*
       {
-        path: 'menu-qaliwarma-actualiza-guia',
+        path: 'menu-qaliwarma-actualiza-guia-a',
         loadChildren: '../qaliwarma/guia-remision/guia-remision.module#GuiaRemisionModule'
-      },
+      },*/
 
       
 
@@ -164,6 +166,12 @@ const routes: Routes = [
       {
         path: 'menu-qaliwarma-catalogo-item-anno',
         loadChildren: '../qaliwarma/catalogo-item-anno/catalogo-item-anno.module#CatalogoItemAnnoModule'
+      },
+
+      /* Impresion de guias */
+      {
+        path: 'menu-qaliwarma-guia-remision',
+        loadChildren: '../qaliwarma/guia-remision/guia-remision.module#GuiaRemisionModule'
       },
       {
         path: 'menu-qaliwarma-catalogo-item-anno',
@@ -195,10 +203,7 @@ const routes: Routes = [
       }
       ,
       //
-      {
-        path: 'menu-qaliwarma-guia-remision',
-        loadChildren: '../qaliwarma/guia-remision/guia-remision.module#GuiaRemisionModule'
-      },
+    
 
       // *****************      qaliwarma consultas  *************************
 
