@@ -148,11 +148,11 @@ const routes: Routes = [
 
       /* Actualizacion Nro de Guia */
 
-      /*
+      
       {
-        path: 'menu-qaliwarma-actualiza-guia-a',
+        path: 'menu-qaliwarma-actualiza-guia',
         loadChildren: '../qaliwarma/guia-remision/guia-remision.module#GuiaRemisionModule'
-      },*/
+      },
 
       
 
@@ -172,7 +172,10 @@ const routes: Routes = [
       {
         path: 'menu-qaliwarma-guia-remision',
         loadChildren: '../qaliwarma/guia-remision/guia-remision.module#GuiaRemisionModule'
+       
       },
+
+      
       {
         path: 'menu-qaliwarma-catalogo-item-anno',
         loadChildren: '../qaliwarma/catalogo-item-anno/catalogo-item-anno.module#CatalogoItemAnnoModule'

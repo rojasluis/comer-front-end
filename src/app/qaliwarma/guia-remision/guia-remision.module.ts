@@ -10,9 +10,9 @@ import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ActualizaNumeroGuiaComponent } from './actualiza-numero-guia/actualiza-numero-guia.component';
-import { RutaDistribucionModule } from '../ruta-distribucion/ruta-distribucion.module';
+//import { RutaDistribucionModule } from '../ruta-distribucion/ruta-distribucion.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -28,7 +28,7 @@ import {MatInputModule} from '@angular/material';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
-    RutaDistribucionModule
+    //RutaDistribucionModule
   ],
   declarations: [GuiaRemisionMainComponent, GuiaRemisionEditComponent, GuiaRemisionListComponent, ActualizaNumeroGuiaComponent]
 })

@@ -13,7 +13,7 @@ declare const $:any;
 })
 export class MainComponent implements OnInit {
 
-  public datos:any = {autor:'Ing. Carlos A. Rojas Casique',  contacto : '954060687', actualizacion : '22/05/2018 v6.0.1-4'}
+  public datos:any = {autor:'Ing. Carlos A. Rojas Casique',  contacto : '954060687', actualizacion : '22/05/2018 v6.0.1-5'}
   public timeOut = 0;
   public showTimeOut = false;
   constructor( private userIdle: UserIdleService, private router:Router) { }

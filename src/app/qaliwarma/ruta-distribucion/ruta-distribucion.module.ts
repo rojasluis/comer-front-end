@@ -15,6 +15,8 @@ import { EmpleadoDistribuidorListComponent } from '../empleado-distribuidor/empl
 import { RutaDistribucionDetalleComponent } from './ruta-distribucion-detalle/ruta-distribucion-detalle.component';
 import { VolumenRequerimiento001Module } from '../requerimiento-volumen-001/volumen-requerimiento-001.module';
 import { MapaDistribucionComponent } from './mapa-distribucion/mapa-distribucion.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { MapaDistribucionComponent } from './mapa-distribucion/mapa-distribucion
     ReactiveFormsModule,
     HttpClientModule,
     EmpleadoDistribuidorModule,
-    VolumenRequerimiento001Module
+    VolumenRequerimiento001Module,
+    MatInputModule,
+    MatFormFieldModule
   ],
   declarations: [ RutaDistribucionMainComponent, RutaDistribucionListComponent, RutaDistribucionEditComponent, RutaDistribucionDetalleComponent, MapaDistribucionComponent]
   
