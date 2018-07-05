@@ -215,6 +215,12 @@ const routes: Routes = [
         loadChildren: '../qaliwarma/consultas/control-despacho/control-despacho.module#ControlDespachoModule'
       },
 
+      //consulta Valorizacion
+      {
+        path: 'menu-qaliwarma-consulta-valorizacion',
+        loadChildren: '../qaliwarma/consultas/valorizacion/valorizacion.module#ValorizacionModule'
+      },
+
       // qaliwarma eliminar calculo
       {
         path: 'menu-qaliwarma-proceso-eliminar-calculo',
