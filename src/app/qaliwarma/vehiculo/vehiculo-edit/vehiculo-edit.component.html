@@ -12,7 +12,7 @@
     <div class="row">
       <label class="col-md-2" for="">Codigo</label>
       <div class="col-md-2">
-        <input formControlName="idVehiculo" [(ngModel)]="this.vehiculoModel.idVehiculo" type="text" class="form-control inputfield"
+        <input formControlName="idVehiculo" type="text" class="form-control inputfield"
           readonly>
       </div>
     </div>
@@ -20,10 +20,16 @@
     <div class="row">
       <label class="col-md-2" for="">Nro Placa</label>
       <div class="col-md-6">
-        <input formControlName="numeroPlaca" [(ngModel)]="this.vehiculoModel.numeroPlaca" type="text" class="form-control inputfield">
+        <input formControlName="numeroPlaca"  type="text" class="form-control inputfield">
       </div>
     </div>
 
+    <div class="row">
+      <label class="col-md-2" for="">Marca</label>
+      <div class="col-md-6">
+        <input formControlName="marcaVehiculo"  type="text" class="form-control inputfield">
+      </div>
+    </div>
 
     <hr>
     <div class="row">

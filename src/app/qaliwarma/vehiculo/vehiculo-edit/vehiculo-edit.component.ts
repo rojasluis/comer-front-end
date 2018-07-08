@@ -51,7 +51,8 @@ export class VehiculoEditComponent implements OnInit {
   buildForm() {
     this.vehiculoForm = this.formBuilder.group({
       idVehiculo: [this.vehiculoModel.idVehiculo, Validators.required],
-      numeroPlaca: [this.vehiculoModel.numeroPlaca, Validators.required]
+      numeroPlaca: [this.vehiculoModel.numeroPlaca, Validators.required],
+      marcaVehiculo: [this.vehiculoModel.marcaVehiculo , Validators.required]
    
     })
 
@@ -59,10 +60,11 @@ export class VehiculoEditComponent implements OnInit {
 
   edit(){
 
+
     this.crudHttpClientServiceShared.edit(this.id,"vehiculo","edit").subscribe(
       res => {
-        this.vehiculoModel = new VehiculoModel(res.idVehiculo,res.numeroPlaca);
-        this.buildForm();
+        this.vehiculoModel = new VehiculoModel(res.idVehiculo,res.numeroPlaca,res.marcaVehiculo);
+        this.vehiculoForm.setValue(this.vehiculoModel)
         
       },
       error=>console.log(error),
@@ -76,11 +78,12 @@ export class VehiculoEditComponent implements OnInit {
 
 
   create(){
-    this.crudHttpClientServiceShared.create(this.vehiculoModel,"vehiculo","create").subscribe(
+    let data =  JSON.stringify(this.vehiculoForm.value);
+    this.crudHttpClientServiceShared.create(data,"vehiculo","create").subscribe(
 
       res=>{
-        this.vehiculoModel = new VehiculoModel(res.idVehiculo,res.numeroPlaca);
-        this.buildForm();
+        this.vehiculoModel = new VehiculoModel(res.idVehiculo,res.numeroPlaca,res.marcaVehiculo);
+        this.vehiculoForm.setValue(this.vehiculoModel)
         this.flagRefreshReturn = true;
       },
       error=>console.log(error),
@@ -97,12 +100,13 @@ export class VehiculoEditComponent implements OnInit {
   }
 
   update(){
-    this.crudHttpClientServiceShared.update(this.vehiculoModel,"vehiculo","update").subscribe(
+    let data =  JSON.stringify(this.vehiculoForm.value);
+    this.crudHttpClientServiceShared.update(data,"vehiculo","update").subscribe(
 
      
       res=>{
-        this.vehiculoModel = new VehiculoModel(res.idVehiculo,res.numeroPlaca);
-        this.buildForm();
+        this.vehiculoModel = new VehiculoModel(res.idVehiculo,res.numeroPlaca,res.marcaVehiculo);
+        this.vehiculoForm.setValue(this.vehiculoModel);
         this.flagRefreshReturn = true;
       },
       error=>console.log(error),
