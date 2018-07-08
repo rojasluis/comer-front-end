@@ -59,7 +59,7 @@
               <td>{{vehiculo.idVehiculo}}</td>
               <td>{{vehiculo.numeroPlaca}}</td>
               <td>
-                <i [routerLink]="['edicion', {vehiculo.idVehiculo}]" (click)="ocultarLista()" style="cursor: pointer;" class="fa fa-pencil fa-1x" aria-hidden="true" data-toggle="tooltip" title="Editar"></i>&nbsp;
+                <i [routerLink]="['/edicion', {vehiculo.idVehiculo}]" (click)="ocultarLista()" style="cursor: pointer;" class="fa fa-pencil fa-1x" aria-hidden="true" data-toggle="tooltip" title="Editar"></i>&nbsp;
               <i style="cursor: pointer;" class="fa fa-trash-o fa-1x" aria-hidden="true" data-toggle="tooltip" title="Eliminar" (click)="delete(data)"></i>
               </td>
             
