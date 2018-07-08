@@ -51,7 +51,8 @@ export class VehiculoEditComponent implements OnInit {
   buildForm() {
     this.vehiculoForm = this.formBuilder.group({
       idVehiculo: [this.vehiculoModel.idVehiculo, Validators.required],
-      numeroPlaca: [this.vehiculoModel.numeroPlaca, Validators.required]
+      numeroPlaca: [this.vehiculoModel.numeroPlaca, Validators.required],
+      marcaVehiculo: [this.vehiculoModel.marcaVehiculo , Validators.required]
    
     })
 
