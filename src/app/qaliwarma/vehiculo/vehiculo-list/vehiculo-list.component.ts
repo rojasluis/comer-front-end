@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import swal from 'sweetalert2'
 import { VehiculoModel } from '../vehiculo-model';
 import { CrudHttpClientServiceShared } from '../../../shared/servicio/crudHttpClient.service.shared';
 import { ActivatedRoute } from '@angular/router';
 import { isUndefined } from 'util';
+import { Table } from 'primeng/table';
 
 
 @Component({
@@ -32,11 +33,23 @@ export class VehiculoListComponent implements OnInit {
   public filterPage: Object;
   public displayModal: boolean = false;
   public refreshPage: boolean = false;
+
+  @ViewChild('dt') dataTable: Table;
   constructor(private crudHttpClientServiceShared: CrudHttpClientServiceShared, private activateRoute:ActivatedRoute) { 
 
   }
 
   ngOnInit() {
+  }
+
+  filter2(value,field,operator){
+   
+    setTimeout(() => {
+      this.dataTable.filter(value, field, operator);
+      this.filterPage = JSON.stringify(this.dataTable.filters);      
+      this.refreshModel(this.dataPagination,true);
+    }, 250);
+    
   }
 
   filter(e) {
@@ -98,6 +111,8 @@ export class VehiculoListComponent implements OnInit {
     this.show = false;
 
   }
+
+ 
 
   delete(e) {
 

@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../../shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {TableModule} from 'primeng/table';
 import { InterceptorAutorizationService } from '../../shared/interceptor-autorization.service';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { InterceptorAutorizationService } from '../../shared/interceptor-autoriz
     CommonModule,
     SharedModule,
     DataTableModule,
+    TableModule,
 
     FormsModule,
     ReactiveFormsModule,
