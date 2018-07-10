@@ -5,6 +5,8 @@ import { CrudHttpClientServiceShared } from '../../../shared/servicio/crudHttpCl
 import { ActivatedRoute } from '@angular/router';
 import { isUndefined } from 'util';
 import { Table } from 'primeng/table';
+import { Subject } from 'rxjs';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 
 @Component({
@@ -35,11 +37,37 @@ export class VehiculoListComponent implements OnInit {
   public refreshPage: boolean = false;
 
   @ViewChild('dt') dataTable: Table;
+
+  Typeahead = new Subject<string>();
+
+
   constructor(private crudHttpClientServiceShared: CrudHttpClientServiceShared, private activateRoute:ActivatedRoute) { 
 
   }
 
   ngOnInit() {
+    this.initObservable();
+  }
+
+
+  initObservable(){
+
+    this.Typeahead.pipe(
+      distinctUntilChanged(),
+      debounceTime(1000),
+    ).subscribe(
+      
+      res =>{
+     
+        let value = res[0];
+        let field = res[1];
+        let operator = res[2];
+
+        this.dataTable.filter(value, field, operator);
+        this.filterPage = JSON.stringify(this.dataTable.filters);      
+        this.refreshModel(this.dataPagination,true);
+
+    })
   }
 
   filter2(value,field,operator){
@@ -69,6 +97,11 @@ export class VehiculoListComponent implements OnInit {
     this.crudHttpClientServiceShared.getPagination(e.currentPage == null ? 0 : e.currentPage, e.rowsForPage == null ? 10 : e.rowsForPage, "asc", e.orden, this.filterPage, e.controller, "pagination", e.paramsExtra)
       .subscribe(
         res => {
+  /*         let data:VehiculoModel[] = res.data;
+        
+          this.vehiculosModel = data.map ( item => {
+            return new VehiculoModel(item.idVehiculo,item.numeroPlaca,item.marcaVehiculo);
+          } ) */
           this.vehiculosModel = res.data;
           e.getTotalPages(res.totalCount, e.rowsForPage == null ? 10 : e.rowsForPage);
         }
