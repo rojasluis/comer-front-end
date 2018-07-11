@@ -1,9 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { RequerimientoVolumen001Model } from '../../requerimiento-volumen-001/requerimiento-volumen-001-model';
 import { CrudHttpClientServiceShared } from '../../../shared/servicio/crudHttpClient.service.shared';
 import { ActivatedRoute } from '@angular/router';
 import { isUndefined, debug } from 'util';
 import { UtilitariosAdicse } from '../../../shared/servicio/utilitariosAdicse';
+import { Subject } from 'rxjs';
+import { Table } from 'primeng/table';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-requerimiento-volumen-001-list',
@@ -77,6 +80,10 @@ eventHandleAfterPagination:EventEmitter<any> = new EventEmitter<any>();
   public filterPage: Object;
   public displayModal: boolean = false;
   public refreshPage: boolean = false;
+
+  @ViewChild('dt') dataTable: Table;
+
+  Typeahead = new Subject<string>();
   constructor(private crudHttpClientServiceShared: CrudHttpClientServiceShared, private activateRoute:ActivatedRoute, private utilitariosAdicse:UtilitariosAdicse) { 
 
   }
@@ -91,7 +98,28 @@ eventHandleAfterPagination:EventEmitter<any> = new EventEmitter<any>();
     }else{
       this.selectionMode = "multiple";
     }
+    this.initObservable();
   
+  }
+
+  initObservable(){
+
+    this.Typeahead.pipe(
+      distinctUntilChanged(),
+      debounceTime(1000),
+    ).subscribe(
+      
+      res =>{
+     
+        let value = res[0];
+        let field = res[1];
+        let operator = res[2];
+
+        this.dataTable.filter(value, field, operator);
+        this.filterPage = JSON.stringify(this.dataTable.filters);      
+        this.refreshModel(this.dataPagination,true);
+
+    })
   }
 
   filtrarCodigoModular(){

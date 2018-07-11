@@ -9,6 +9,7 @@ import { DataTableModule } from 'primeng/primeng';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RequerimientoVolumen001EditComponent } from './requerimiento-volumen-001-edit/requerimiento-volumen-001-edit.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { RequerimientoVolumen001EditComponent } from './requerimiento-volumen-00
     CommonModule,
     SharedModule,
     DataTableModule,
-
+    TableModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
